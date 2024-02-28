@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+	{% if user %}
+		<h2>Hello, {{ user }}</h2>
+	{% else %}
+		<h2>You are not authorized, please log in.</h2>
+	{% endif %}
+    
+	<div class="element-wrapper">
+		<textarea name="textarea" class="textarea-element" style="width: 300px; height: 150px;">Enter you text here. Hover on the marked words for intant correction suggestions. To got the whole text checked at once, switch to the Proofread in dialog mode in the editor settings.</textarea>
+	</div>
+	
+	{% if user %}
+		<form action="{{ url_for('logout') }}" method="get">
+			<input type="submit" value="Logout">
+		</form>
+	{% else %}
+		<form action="{{ url_for('login') }}" method="get">
+			<input type="submit" value="Login">
+		</form>
+	{% endif %}
+	
+	<script>
+	window.WEBSPELLCHECKER_CONFIG = {
+		"autoSearch": true,
+		"autoDestroy": true,
+		"autocorrect": true,
+		"autocomplete": true,
+		"enforceAI": true,
+		"serviceId": "",
+		"serviceProtocol": "http",
+		"servicePort": "{{ port }}",
+		"serviceHost": "{{ host }}",
+		"servicePath": "check"
+	}
+	</script>
+
+	{% if local %}
+		<script src="http://{{ host }}:{{ port }}/wscbundle/wscbundle.js"></script>
+	{% else %}
+		<script src="https://svc.webspellchecker.net/spellcheck31/wscbundle/wscbundle.js"></script>
+	{% endif %}
+
+	<script>
+		WEBSPELLCHECKER.init({
+			container: document.querySelector('.textarea-element')
+		});
+	</script>
+</body>
+</html>
