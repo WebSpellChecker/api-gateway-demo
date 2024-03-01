@@ -24,8 +24,6 @@ To run demo for WebSpellChecker cloud version launch the application specifying 
 python main.py --customerid <your_customer_id>
 ```
 
-After launching the application should be running and available under http://127.0.0.1:5000/
-
 ### Running demo for WebSpellChecker on-premise version
 
 To run demo for WebSpellChecker on-premise version launch the application specifying path to your WebSpellChecker service endpoint:
@@ -42,7 +40,14 @@ python main.py --help
 
 **Note!** Make sure, that API Gateway is able to reach provided WebSpellChecker service endpoint.
 
+### Using configured demo API GateWay
+
 After launching the application should be running and available under http://127.0.0.1:5000/
+
+When you run the demo, the service is initially not available until the user signs in. To sign in,
+click `Login` button and use `username:password` predefined credentials. When user is logged in and
+have session cookie which can be sent with API requests the WebSpellChecker service should become
+available on the page.
 
 ## Configure your own API Gateway
 
