@@ -4,10 +4,10 @@ import requests
 from urllib.parse import unquote
 
 
-def create_check_bp(customerid):
-    check_bp = Blueprint('check', __name__)
+def create_service_path_blueprint(customerid):
+    service_path_blueprint = Blueprint('check', __name__)
 
-    @check_bp.route('/check', methods=["POST"])
+    @service_path_blueprint.route('/check', methods=["POST"])
     def check():
         # Check if user is authorized
         if not current_user.is_authenticated:
@@ -40,4 +40,4 @@ def create_check_bp(customerid):
 
         return data
 
-    return check_bp
+    return service_path_blueprint

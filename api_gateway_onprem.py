@@ -3,10 +3,10 @@ from flask_login import current_user, login_required
 import requests
 
 
-def create_check_bp(protocol, host, port, virtual_dir):
-    check_bp = Blueprint('check', __name__)
+def create_service_path_blueprint(protocol, host, port, virtual_dir):
+    service_path_blueprint = Blueprint('check', __name__)
 
-    @check_bp.route('/check', methods=["POST"])
+    @service_path_blueprint.route('/check', methods=["POST"])
     def check():
         # Check if user is authorized
         if not current_user.is_authenticated:
@@ -30,7 +30,7 @@ def create_check_bp(protocol, host, port, virtual_dir):
         # Return wsc response
         return Response(proxied_response.text, status=proxied_response.status_code, headers=response_headers)
 
-    @check_bp.route("/wscbundle/<path:path>", methods=["GET"])
+    @service_path_blueprint.route("/wscbundle/<path:path>", methods=["GET"])
     @login_required
     def wscbundle(path):
         # Save Referer header
@@ -49,4 +49,4 @@ def create_check_bp(protocol, host, port, virtual_dir):
         # Return wsc response
         return Response(proxied_response.content, status=proxied_response.status_code, headers=response_headers)
 
-    return check_bp
+    return service_path_blueprint

@@ -26,13 +26,13 @@ app.config.update(
     SECRET_KEY="your_secret_key",
 )
 if args.local:
-    from api_gateway_onprem import create_check_bp
+    from api_gateway_onprem import create_service_path_blueprint
 
-    app.register_blueprint(create_check_bp(args.protocol, args.host, args.port, args.virtual_dir))
+    app.register_blueprint(create_service_path_blueprint(args.protocol, args.host, args.port, args.virtual_dir))
 else:
-    from api_gateway_cloud import create_check_bp
+    from api_gateway_cloud import create_service_path_blueprint
 
-    app.register_blueprint(create_check_bp(args.customerid))
+    app.register_blueprint(create_service_path_blueprint(args.customerid))
 
 login_manager = LoginManager()
 login_manager.init_app(app)
