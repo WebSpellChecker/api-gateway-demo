@@ -10,7 +10,7 @@ from flask_login import (
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--customerid", help="Your cloud customerid.")
+parser.add_argument("--serviceid", help="Your cloud serviceid.")
 parser.add_argument("--local", action='store_true', help="Configure gateway to a local WebSpellChecker instance.")
 parser.add_argument("--protocol", help="WebSpellChecker protocol (http/https). Default: http.", default='http')
 parser.add_argument("--host", help="WebSpellChecker host. Default: localhost", default='localhost')
@@ -32,7 +32,7 @@ if args.local:
 else:
     from api_gateway_cloud import create_service_path_blueprint
 
-    app.register_blueprint(create_service_path_blueprint(args.customerid))
+    app.register_blueprint(create_service_path_blueprint(args.serviceid))
 
 login_manager = LoginManager()
 login_manager.init_app(app)

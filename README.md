@@ -20,7 +20,7 @@ Follow the steps below to set up and run the API gateway.
 To run the demo for cloud version, launch the application specifying your service ID (activation key that you received during the subscription):
 
 ```
-python main.py --customerid <your_customer_id>
+python main.py --serviceid <your_service_id>
 ```
 
 ### Running demo for on-premise version

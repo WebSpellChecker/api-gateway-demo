@@ -4,7 +4,7 @@ import requests
 from urllib.parse import unquote
 
 
-def create_service_path_blueprint(customerid):
+def create_service_path_blueprint(serviceid):
     service_path_blueprint = Blueprint('check', __name__)
 
     @service_path_blueprint.route('/check', methods=["POST"])
@@ -16,9 +16,9 @@ def create_service_path_blueprint(customerid):
 
         headers = {'Referer': request.headers['Referer']}
 
-        # Add customerid to request data
+        # Add serviceid to request data
         data = parse_form_data(request.data.decode())
-        data['customerid'] = customerid
+        data['serviceid'] = serviceid
         # Send request to wsc cloud
         proxied_response = requests.post("https://svc.webspellchecker.net/api", data=data, headers=headers)
 
