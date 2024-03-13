@@ -5,6 +5,15 @@ The API gateway serves as a secured endpoint to the WebSpellChecker services and
 
 Using this example, you will be able to implement API gateway to both cloud/SaaS and on-premise/self-hosted product versions.
 
+## Usage
+
+Below you can see the diagram describing the flow of API gateway. User's frontend is configured to send
+requests to API gateway endpoint. API gateway authorizes the request and proxying the request
+to WebSpellChecker service endpoint. Using this approach we are able to hide WebSpellChecker endpoint
+for not authorized users.
+
+![scheme](scheme.png)
+
 ## Getting started
 
 Follow the steps below to set up and run the API gateway.
