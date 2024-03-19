@@ -9,8 +9,8 @@ Using this example, you will be able to implement API gateway to both cloud/SaaS
 
 Below you can see the diagram describing the flow of API gateway. User's frontend is configured to send
 requests to API gateway endpoint. API gateway authorizes the request and proxying the request
-to WebSpellChecker service endpoint. Using this approach we are able to hide WebSpellChecker endpoint
-for not authorized users.
+to WebSpellChecker service endpoint. Using this approach, you are able to hide the WebSpellChecker endpoint
+from unauthorized users.
 
 ![scheme](scheme.png)
 
@@ -22,7 +22,7 @@ Follow the steps below to set up and run the API gateway.
 
 - Python 3.x
 - Required dependencies (install using `pip install -r requirements.txt`)
-- WebSpellChecker product license (valid subscription to the cloud service or on-premise version deloyed)
+- WebSpellChecker product license (valid subscription to the cloud service or on-premise version)
 
 ### Running demo for cloud version
 
