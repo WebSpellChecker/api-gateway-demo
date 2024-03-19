@@ -48,7 +48,7 @@ python main.py --help
 
 **Note!** Make sure that API gateway is able to reach the provided service endpoint.
 
-### Using configured demo API gateWay
+### Using configured demo API gateway
 
 After launching, the application should be running and available under http://127.0.0.1:5000/
 
